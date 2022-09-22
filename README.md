@@ -16,6 +16,11 @@
 
 ## Overview
 
+This repo is forked from https://github.com/vartanbeno/go-reddit due to
+inactivity, for ease of upgrade and use in personal projects with added
+features. Endless thanks to vartanbeno for his work on this project and getting
+it to such a great place.
+
 **Featured in issues [327](https://golangweekly.com/issues/327) and [347](https://golangweekly.com/issues/347) of Golang Weekly 🎉**
 
 go-reddit is a Go client library for accessing the Reddit API.
