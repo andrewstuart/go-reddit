@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+
+	"golang.org/x/oauth2"
 )
 
 // Opt is used to further configure a client upon initialization.
@@ -17,6 +19,15 @@ func WithHTTPClient(httpClient *http.Client) Opt {
 			return errors.New("*http.Client: cannot be nil")
 		}
 		c.client = httpClient
+		return nil
+	}
+}
+
+// WithTokenSource allows a reddit client user to use their own token source
+// for an instance of the reddit.Client.
+func WithTokenSource(ts oauth2.TokenSource) Opt {
+	return func(c *Client) error {
+		c.TokenSource = ts
 		return nil
 	}
 }

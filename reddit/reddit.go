@@ -70,10 +70,11 @@ type Client struct {
 	rateMu sync.Mutex
 	rate   Rate
 
-	ID       string
-	Secret   string
-	Username string
-	Password string
+	ID          string
+	Secret      string
+	Username    string
+	Password    string
+	TokenSource oauth2.TokenSource
 
 	// This is the client's user ID in Reddit's database.
 	redditID string
