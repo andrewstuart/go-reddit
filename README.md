@@ -6,9 +6,9 @@
 
 <div id='badges' align='center'>
 
-[![Actions Status](https://github.com/vartanbeno/go-reddit/workflows/tests/badge.svg)](https://github.com/vartanbeno/go-reddit/actions)
-[![Go Report Card](https://goreportcard.com/badge/github.com/vartanbeno/go-reddit)](https://goreportcard.com/report/github.com/vartanbeno/go-reddit)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/vartanbeno/go-reddit/v2/reddit)](https://pkg.go.dev/github.com/vartanbeno/go-reddit/v2/reddit)
+[![Actions Status](https://github.com/andrewstuart/go-reddit/workflows/tests/badge.svg)](https://github.com/andrewstuart/go-reddit/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/andrewstuart/go-reddit)](https://goreportcard.com/report/github.com/andrewstuart/go-reddit)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/andrewstuart/go-reddit/v2/reddit)](https://pkg.go.dev/github.com/andrewstuart/go-reddit/v2/reddit)
 
 </div>
 
@@ -24,16 +24,16 @@ You can view Reddit's official API documentation [here](https://www.reddit.com/d
 
 ## Install
 
-To get a specific version from the list of [versions](https://github.com/vartanbeno/go-reddit/releases):
+To get a specific version from the list of [versions](https://github.com/andrewstuart/go-reddit/releases):
 
 ```sh
-go get github.com/vartanbeno/go-reddit/v2@vX.Y.Z
+go get github.com/andrewstuart/go-reddit/v2@vX.Y.Z
 ```
 
 Or for the latest version:
 
 ```sh
-go get github.com/vartanbeno/go-reddit/v2
+go get github.com/andrewstuart/go-reddit/v2
 ```
 
 The repository structure for managing multiple major versions follows the one outlined [here](https://github.com/go-modules-by-example/index/tree/master/016_major_version_repo_strategy#major-branch-strategy).
@@ -45,7 +45,7 @@ Make sure to have a Reddit app with a valid client id and secret. [Here](https:/
 ```go
 package main
 
-import "github.com/vartanbeno/go-reddit/v2/reddit"
+import "github.com/andrewstuart/go-reddit/v2/reddit"
 
 func main() {
     credentials := reddit.Credentials{ID: "id", Secret: "secret", Username: "username", Password: "password"}
