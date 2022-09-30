@@ -593,6 +593,15 @@ func (pc *PostAndComments) UnmarshalJSON(data []byte) error {
 
 	err := json.Unmarshal(data, &root)
 	if err != nil {
+		var realPost struct {
+			Post     *Post
+			Comments []*Comment
+			More     *More
+		}
+		err2 := json.Unmarshal(data, &realPost)
+		if err2 == nil {
+			return nil
+		}
 		return err
 	}
 
