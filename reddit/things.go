@@ -485,6 +485,12 @@ func (r *Replies) UnmarshalJSON(data []byte) error {
 	root := new(thing)
 	err := json.Unmarshal(data, root)
 	if err != nil {
+		var realReplies []*Comment
+		err2 := json.Unmarshal(data, &realReplies)
+		if err2 == nil {
+			r.Comments = append(r.Comments, realReplies...)
+			return nil
+		}
 		return err
 	}
 
@@ -594,15 +600,16 @@ func (pc *PostAndComments) UnmarshalJSON(data []byte) error {
 	err := json.Unmarshal(data, &root)
 	if err != nil {
 		var realPost struct {
-			Post     *Post
-			Comments []*Comment
+			Post     *Post      `json:"post"`
+			Comments []*Comment `json:"comments"`
 			More     *More
 		}
 		err2 := json.Unmarshal(data, &realPost)
 		if err2 == nil {
+			*pc = PostAndComments(realPost)
 			return nil
 		}
-		return err
+		return fmt.Errorf("two errors: %s, %w:", err2, err)
 	}
 
 	listing1, _ := root[0].Listing()
