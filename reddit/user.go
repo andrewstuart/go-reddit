@@ -285,6 +285,7 @@ func (s *UserService) Block(ctx context.Context, username string) (*Blocked, *Re
 
 	form := url.Values{}
 	form.Set("name", username)
+	form.Set("api_type", "json")
 
 	req, err := s.client.NewRequest(http.MethodPost, path, form)
 	if err != nil {

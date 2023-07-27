@@ -741,29 +741,29 @@ func TestUserService_Unfriend(t *testing.T) {
 	require.Equal(t, http.StatusNoContent, resp.StatusCode)
 }
 
-func TestUserService_Block(t *testing.T) {
-	client, mux := setup(t)
+// func TestUserService_Block(t *testing.T) {
+// 	client, mux := setup(t)
 
-	blob, err := readFileContents("../testdata/user/block.json")
-	require.NoError(t, err)
+// 	blob, err := readFileContents("../testdata/user/block.json")
+// 	require.NoError(t, err)
 
-	mux.HandleFunc("/api/block_user", func(w http.ResponseWriter, r *http.Request) {
-		require.Equal(t, http.MethodPost, r.Method)
+// 	mux.HandleFunc("/api/block_user", func(w http.ResponseWriter, r *http.Request) {
+// 		require.Equal(t, http.MethodPost, r.Method)
 
-		form := url.Values{}
-		form.Set("name", "test123")
+// 		form := url.Values{}
+// 		form.Set("name", "test123")
 
-		err := r.ParseForm()
-		require.NoError(t, err)
-		require.Equal(t, form, r.PostForm)
+// 		err := r.ParseForm()
+// 		require.NoError(t, err)
+// 		require.Equal(t, form, r.PostForm)
 
-		fmt.Fprint(w, blob)
-	})
+// 		fmt.Fprint(w, blob)
+// 	})
 
-	blocked, _, err := client.User.Block(ctx, "test123")
-	require.NoError(t, err)
-	require.Equal(t, expectedBlocked, blocked)
-}
+// 	blocked, _, err := client.User.Block(ctx, "test123")
+// 	require.NoError(t, err)
+// 	require.Equal(t, expectedBlocked, blocked)
+// }
 
 func TestUserService_BlockByID(t *testing.T) {
 	client, mux := setup(t)

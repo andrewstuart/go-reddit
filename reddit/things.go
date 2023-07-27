@@ -524,12 +524,40 @@ type More struct {
 	Children []string `json:"children"`
 }
 
+type MediaMeta struct {
+	Status string `json:"status"`
+	E      string `json:"e"`
+	M      string `json:"m"`
+	P      []struct {
+		X, Y int
+		U    string
+	} `json:"p"`
+	S struct {
+		Y, X int
+		U    string
+	}
+	ID string
+}
+
+type GalleryItem struct {
+	Caption     string `json:"caption"`
+	OutboundURL string `json:"outbound_url"`
+	MediaID     string `json:"media_id"`
+	ID          int    `json:"id"`
+}
+
 // Post is a submitted post on Reddit.
 type Post struct {
 	ID      string     `json:"id,omitempty"`
 	FullID  string     `json:"name,omitempty"`
 	Created *Timestamp `json:"created_utc,omitempty"`
 	Edited  *Timestamp `json:"edited,omitempty"`
+
+	IsGallery     bool                 `json:"is_gallery,omitempty"`
+	MediaMetadata map[string]MediaMeta `json:"media_metadata,omitempty"`
+	GalleryData   struct {
+		Items []GalleryItem
+	} `json:"gallery_data,omitempty"`
 
 	Permalink string `json:"permalink,omitempty"`
 	URL       string `json:"url,omitempty"`
